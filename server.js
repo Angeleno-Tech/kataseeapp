@@ -7,7 +7,7 @@
 var app = require('./src/app');
 var debug = require('debug')('kataseeApp:server');
 var http = require('http');
-var db = require ('./src/db');
+var db = require ('./src/db/db');
 
 /**
  * Get port from environment and store in Express.
