@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 
 var db = mongoose.connection;
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://localhost/katasee_db');
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
