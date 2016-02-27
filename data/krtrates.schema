@@ -1,0 +1,32 @@
+-- ----------------------------------------------------------
+-- MDB Tools - A library for reading MS Access database files
+-- Copyright (C) 2000-2011 Brian Bruns and others.
+-- Files in libmdb are licensed under LGPL and the utilities under
+-- the GPL, see COPYING.LIB and COPYING files respectively.
+-- Check out http://mdbtools.sourceforge.net
+-- ----------------------------------------------------------
+
+-- That file uses encoding UTF-8
+
+CREATE TABLE [KRTrates2011-02-21]
+ (
+	[ITEM]			Text (510), 
+	[COMMENT]			Text (510), 
+	[SPACE]			Text (510), 
+	[POS_NEG]			Text (510), 
+	[CR]			Text (510), 
+	[ID]			Long Integer, 
+	[PRINT]			Boolean NOT NULL, 
+	[RATE1]			Single, 
+	[RATE2]			Single, 
+	[RATE3]			Single, 
+	[RATE4]			Single, 
+	[FREQUENCY]			Single, 
+	[FREQ_2]			Single, 
+	[FREQ_3]			Single, 
+	[FREQ_4]			Single, 
+	[FREQ_5]			Single, 
+	[FREQ_6]			Single
+);
+
+
