@@ -24,14 +24,4 @@ var krtSchema = mongoose.Schema({
 
 var KrtRecord = mongoose.model('KrtRecord', krtSchema);
 
-var krtRecord = new KrtRecord();
-krtRecord.save(function (err, krtRecord) {
-	if (err) { return console.error(err) };
-	console.log("saved krtRecord");
-});
-
-
-
-
-
 module.exports = KrtRecord;

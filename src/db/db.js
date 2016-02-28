@@ -11,18 +11,13 @@ db.once('open', function() {
 
   console.log('connected to ', MONGO_URI);
 
-  // var kittySchema = mongoose.Schema({
-  //  	name: String
-  // });
-  // var Kitten = mongoose.model('Kitten', kittySchema);
-  // var fluffy = new Kitten({ name: 'fluffy' });
-  // fluffy.save(function (err, fluffy) {
-  // if (err) return console.error(err);
-  //   console.log("saved fluffy");
-  // });
-
 
 });
 
+var krtRecord = new KrtRecord();
+krtRecord.save(function (err, krtRecord) {
+	if (err) { return console.error(err) };
+	console.log("saved krtRecord");
+});
 
 module.exports = db;
