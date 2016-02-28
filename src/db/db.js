@@ -1,5 +1,13 @@
 var mongoose = require('mongoose');
-var KrtRecord = require('./krt-record');
+var rateRecord = require('./rate-record');
+
+var fs = require('fs');
+
+fs.readFile('data/krtrates.data.csv', 'utf8', function(err, contents) {
+    console.log(contents);
+});
+
+console.log('after calling readFile');
 
 var MONGO_URI = 'mongodb://localhost/katasee_db';
 
@@ -14,7 +22,7 @@ db.once('open', function() {
 
 });
 
-var krtRecord = new KrtRecord();
+var krtRecord = new rateRecord();
 krtRecord.save(function (err, krtRecord) {
 	if (err) { return console.error(err) };
 	console.log("saved krtRecord");

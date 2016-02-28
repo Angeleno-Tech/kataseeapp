@@ -16,11 +16,6 @@ var db = require ('./src/db/db');
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-/** 
- * Open database
- */
-// db.init();
-
 /**
  * Create HTTP server.
  */
