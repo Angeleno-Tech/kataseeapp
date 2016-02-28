@@ -1,16 +1,37 @@
+var mongoose = require('mongoose');
 
 var krtSchema = mongoose.Schema({
-  name: String
+  description: String,
+  comment: String,
+  space: String,
+  pos_neg: String,
+  cr: String,
+  ID: Number,
+  print: Boolean,
+
+  rate_1: Number,
+  rate_2: Number,
+  rate_3: Number,
+
+  freq_1: Number,
+  freq_2: Number,
+  freq_3: Number,
+  freq_4: Number,
+  freq_5: Number,
+  freq_6: Number
 });
 
-var KrtRate = mongoose.model('KrtRate', krtSchema);
+
+var KrtRecord = mongoose.model('KrtRecord', krtSchema);
+
+var krtRecord = new KrtRecord();
+krtRecord.save(function (err, krtRecord) {
+	if (err) { return console.error(err) };
+	console.log("saved krtRecord");
+});
 
 
-// var fluffy = new Kitten({ name: 'fluffy' });
-// fluffy.save(function (err, fluffy) {
-// if (err) return console.error(err);
-// console.log("saved fluffy");
-// });
 
 
-module.exports = KrtRate;
+
+module.exports = KrtRecord;
