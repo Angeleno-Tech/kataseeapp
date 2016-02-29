@@ -2,4 +2,10 @@ extends layout
 
 block content
   h1= title
-  p Welcome to xxx #{title}
+  p Welcome to #{title}
+
+  p Search:
+  input(
+    type='text'
+    name='search'
+  )
