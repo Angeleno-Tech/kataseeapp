@@ -4,8 +4,8 @@ block content
   h1= title
   p Welcome to #{title}
 
-  p Search:
-  input(
-    type='text'
-    name='search'
-  )
+  form(name='search xxx', action='/search', method='get')
+      div.input
+          input(type='text', name='value')
+      div.actions
+          input(type='submit', value='Search')
