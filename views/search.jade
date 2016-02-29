@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/search.css')
+  body
+    h1 Search Results
+    p #{searchResults.length} records found
+    ul
+      each value in searchResults
+        li(class='search-result')
+          div(class='title') Description: #{value.ITEM}
+          if value.COMMENT
+            div(class='value') Comment: #{value.COMMENT}
+          if value.RATE1
+            div(class='value') Rate1: #{value.RATE1}
+          if value.RATE2
+            div(class='value') Rate2: #{value.RATE2}
+          if value.RATE3
+            div(class='value') Rate3: #{value.RATE3}
+          if value.RATE4
+            div(class='value') Rate4: #{value.RATE4}
+
