@@ -1,24 +1,52 @@
-doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='/stylesheets/search.css')
-  body
-    h1 Search Results
-    p #{searchResults.length} records found
-    ul
-      each value in searchResults
-        li(class='search-result')
-          div(class='title') Description: #{value.ITEM}
-          if value.COMMENT
-            div(class='value') Comment: #{value.COMMENT}
-          if value.RATE1
-            div(class='value') Rate1: #{value.RATE1}
-          if value.RATE2
-            div(class='value') Rate2: #{value.RATE2}
-          if value.RATE3
-            div(class='value') Rate3: #{value.RATE3}
-          if value.RATE4
-            div(class='value') Rate4: #{value.RATE4}
+extends layout
 
+block head_content
+  link(rel='stylesheet', href='/stylesheets/search.css')
+
+block content
+  h1 Search Results
+  p #{searchResults.length} records found for the term '#{searchValue}'
+
+  form(name='search', action='/search', method='get')
+    div.input
+      input(type='text', name='value', value='#{searchValue}')
+    div.actions
+      input(type='submit', value='Search')
+
+  ul
+    each value in searchResults
+      li(class='search-result')
+        if value.ITEM
+          div(class='title') Description: #{value.ITEM}
+        if value.COMMENT
+          div(class='value') Comment: #{value.COMMENT}
+
+        if value.FREQUENCY
+          div(class='value') Frequency1: #{value.FREQUENCY}
+        if value.FREQ_2
+          div(class='value') Frequency2: #{value.FREQ_2}
+        if value.FREQ_3
+          div(class='value') Frequency3: #{value.FREQ_3}
+        if value.FREQ_4
+          div(class='value') Frequency4: #{value.FREQ_4}
+        if value.FREQ_5
+          div(class='value') Frequency5: #{value.FREQ_5}
+        if value.FREQ_6
+          div(class='value') Frequency6: #{value.FREQ_6}
+
+        if value.RATE1
+          div(class='value') Rate1: #{value.RATE1}
+        if value.RATE2
+          div(class='value') Rate2: #{value.RATE2}
+        if value.RATE3
+          div(class='value') Rate3: #{value.RATE3}
+        if value.RATE4
+          div(class='value') Rate4: #{value.RATE4}
+
+        if value.SPACE
+          div(class='value') SPACE: #{value.SPACE}
+        if value.CR
+          div(class='value') CR: #{value.CR}
+
+        if value.POS_NEG
+          div(class='value') POS_NEG: #{value.POS_NEG}

@@ -3,29 +3,29 @@ var router = express.Router();
 var RateRecord = require('../src/db/rate-record');
 
 
-/* GET users listing. */
 router.get('/', function(req, res, next) {
   var searchValue = req.query['value'];
-  console.log('search for:', searchValue);
-  // res.send('search results');
-  // find each person with a last name matching 'Ghost'
-  var regex = '/' + searchValue + '/'
-  console.log("regex = ", regex);
-  var query = RateRecord.find({
-    'ITEM': new RegExp(searchValue, 'i')
-  });
+  var terms = searchValue.split(',');
+  var regex = '';
+  for (var i = 0; i < terms.length; i++) {
+    regex = regex.concat(terms[i].trim());
+    if (i < terms.length - 1) {
+      regex = regex.concat('|');
+    }
+  }
 
-  // execute the query at a later time
+  var query = RateRecord.find().or(
+    [
+      {'ITEM': new RegExp(regex, 'i')},
+      {'COMMENT': new RegExp(regex, 'i')}
+    ]
+  ).sort('ITEM');
+
   query.exec(function (err, rate) {
-    if (err) return handleError(err);
-    console.log('rate: ', rate) // Space Ghost is a talk show host.
-    // res.send(rate);
-    res.render('search', {searchResults: rate})
+    if (err) { return handleError(err) };
+    res.render('search', {searchResults: rate, searchValue: searchValue})
   })
 
-
-  // console.log("results: ", results);
-  // res.render('search', { title: 'Search results' });
 });
 
 module.exports = router;
